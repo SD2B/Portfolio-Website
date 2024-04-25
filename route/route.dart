@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_portfolio/screen/contact/contact.dart';
+import 'package:my_portfolio/screen/education/education.dart';
 import 'package:my_portfolio/screen/home.dart';
+import 'package:my_portfolio/screen/projects/projects.dart';
 
 import '../helpers/common_enums.dart';
 import '../helpers/constants.dart';
@@ -83,6 +86,51 @@ List<GoRoute> _staticRoutes() {
               child: child);
         },
         child: const CustomScaffold(childWidget: Skills()),
+      ),
+    ),
+    GoRoute(
+      path: RouteEnum.project.name,
+      name: RouteEnum.project.name,
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          CustomTransitionPage(
+        key: state.pageKey,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(
+              opacity:
+                  CurveTween(curve: Curves.easeInOutSine).animate(animation),
+              child: child);
+        },
+        child: const CustomScaffold(childWidget: Projects()),
+      ),
+    ),
+    GoRoute(
+      path: RouteEnum.education.name,
+      name: RouteEnum.education.name,
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          CustomTransitionPage(
+        key: state.pageKey,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(
+              opacity:
+                  CurveTween(curve: Curves.easeInOutSine).animate(animation),
+              child: child);
+        },
+        child: const CustomScaffold(childWidget: Education()),
+      ),
+    ),
+    GoRoute(
+      path: RouteEnum.contact.name,
+      name: RouteEnum.contact.name,
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          CustomTransitionPage(
+        key: state.pageKey,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(
+              opacity:
+                  CurveTween(curve: Curves.easeInOutSine).animate(animation),
+              child: child);
+        },
+        child: const CustomScaffold(childWidget: ContactMe()),
       ),
     ),
   ];

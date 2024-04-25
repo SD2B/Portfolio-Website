@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/common%20elements/in_progress.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-class Skills extends ConsumerWidget {
-  const Skills({super.key});
+class ContactMe extends ConsumerWidget {
+  const ContactMe({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

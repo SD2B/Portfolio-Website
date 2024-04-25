@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hovering/hovering.dart';
+import 'package:my_portfolio/vm/riverpod.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../colors.dart';
@@ -21,31 +24,53 @@ class CustomSideBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SideBarButton(
-                  icon: Icons.home,
+                  svgl: "assets/svg/homel.svg",
+                  svgd: "assets/svg/homed.svg",
                   onTap: () {
                     context.go("/");
                   }),
               SideBarButton(
-                  icon: Icons.code,
+                  svgl: "assets/svg/skilll.svg",
+                  svgd: "assets/svg/skilld.svg",
                   onTap: () {
                     context.goNamed(RouteEnum.skills.name);
                   }),
-              SideBarButton(icon: Icons.checklist_outlined, onTap: () {}),
-              SideBarButton(icon: Icons.book, onTap: () {}),
-              SideBarButton(icon: Icons.call_end_rounded, onTap: () {}),
+              SideBarButton(
+                  svgl: "assets/svg/projectl.svg",
+                  svgd: "assets/svg/projectd.svg",
+                  onTap: () {
+                    context.goNamed(RouteEnum.project.name);
+                  }),
+              SideBarButton(
+                svgl: "assets/svg/edul.svg",
+                svgd: "assets/svg/edud.svg",
+                onTap: () {
+                  context.goNamed(RouteEnum.education.name);
+                },
+              ),
+              SideBarButton(
+                svgl: "assets/svg/contactl.svg",
+                svgd: "assets/svg/contactd.svg",
+                onTap: () {
+                  context.goNamed(RouteEnum.contact.name);
+                },
+              ),
             ],
           ),
         ));
   }
 }
 
-class SideBarButton extends StatelessWidget {
-  final IconData icon;
+class SideBarButton extends ConsumerWidget {
+  // final IconData icon;
+  final String svgl;
+  final String svgd;
   final VoidCallback? onTap;
-  const SideBarButton({super.key, required this.icon, this.onTap});
+  const SideBarButton(
+      {super.key, this.onTap, required this.svgl, required this.svgd});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
         Card(
@@ -58,7 +83,12 @@ class SideBarButton extends StatelessWidget {
                 height: 40,
                 hoverHeight: 50,
                 hoverWidth: 50,
-                child: Icon(icon),
+                padding: EdgeInsets.all(5),
+                child: SvgPicture.asset(
+                  ref.watch(mainVM).isLightTheme ? svgl : svgd,
+                  height: 30,
+                  width: 30,
+                ),
               ),
             )),
         10.height

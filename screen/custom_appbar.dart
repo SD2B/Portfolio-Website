@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_portfolio/colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../vm/riverpod.dart';
@@ -12,7 +11,7 @@ class CustomAppBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
         width: context.width(),
-        height: 50,
+        height: 60,
         child: Row(
           children: [
             20.width,
