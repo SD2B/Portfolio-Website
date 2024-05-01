@@ -76,14 +76,18 @@ class SideBarButton extends ConsumerWidget {
         Card(
             color: ColorCode.colorList(context).cardColor,
             child: InkWell(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
               onTap: onTap,
               child: HoverAnimatedContainer(
                 width: 40,
                 height: 40,
-                hoverHeight: 50,
-                hoverWidth: 50,
-                padding: EdgeInsets.all(5),
+                hoverHeight: 60,
+                hoverWidth: 60,
+                hoverDecoration: BoxDecoration(
+                  color: grey.withOpacity(.3),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                ),
+                padding: const EdgeInsets.all(5),
                 child: SvgPicture.asset(
                   ref.watch(mainVM).isLightTheme ? svgl : svgd,
                   height: 30,

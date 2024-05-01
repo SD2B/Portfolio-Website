@@ -1,10 +1,15 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meta_seo/meta_seo.dart';
 
 import 'route/route.dart';
 import 'vm/riverpod.dart';
 
 void main() {
+   if (kIsWeb) {
+    MetaSEO().config();
+  }
   runApp(const ProviderScope(child: MyApp()));
 }
 

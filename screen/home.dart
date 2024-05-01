@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,98 +40,103 @@ class Home extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              height: context.height() - 200,
-                              width: RespoHelper.isDesktop(context) ? 500 : 300,
-                              decoration: BoxDecoration(
-                                color: ColorCode.colorList(context).cardColor,
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(30),
+                            Expanded(
+                              child: Container(
+                                height: context.height() - 200,
+                                width:
+                                    RespoHelper.isDesktop(context) ? 500 : 300,
+                                decoration: BoxDecoration(
+                                  color: ColorCode.colorList(context).cardColor,
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(30),
+                                  ),
                                 ),
-                              ),
-                              child: Lottie.asset(
-                                "assets/lottie/lottie5.json",
-                                height: RespoHelper.isDesktop(context)
-                                    ? 500
-                                    : RespoHelper.isTablet(context)
-                                        ? 300
-                                        : 100,
-                                width: RespoHelper.isDesktop(context)
-                                    ? context.width() - 600
-                                    : RespoHelper.isTablet(context)
-                                        ? 300
-                                        : 100,
+                                child: Lottie.asset(
+                                  "assets/lottie/lottie5.json",
+                                  height: RespoHelper.isDesktop(context)
+                                      ? 500
+                                      : RespoHelper.isTablet(context)
+                                          ? 300
+                                          : 100,
+                                  width: RespoHelper.isDesktop(context)
+                                      ? context.width() - 600
+                                      : RespoHelper.isTablet(context)
+                                          ? 300
+                                          : 100,
+                                ),
                               ),
                             ),
                             // 20.width,
-                            SizedBox(
-                              height: context.height() - 88,
-                              width: RespoHelper.isDesktop(context)
-                                  ? context.width() - 830
-                                  : 500,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Hi,',
-                                    textDirection: TextDirection.ltr,
-                                    style: GoogleFonts.abhayaLibre(
-                                      fontSize: 48,
+                            Expanded(
+                              child: SizedBox(
+                                height: context.height() - 88,
+                                width: RespoHelper.isDesktop(context)
+                                    ? context.width() - 830
+                                    : 500,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Hi,',
+                                      textDirection: TextDirection.ltr,
+                                      style: GoogleFonts.abhayaLibre(
+                                        fontSize: 48,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    'I\'m Sanoop Das',
-                                    textDirection: TextDirection.ltr,
-                                    style: GoogleFonts.abhayaLibre(
-                                      fontSize: 48,
+                                    Text(
+                                      'I\'m Sanoop Das',
+                                      textDirection: TextDirection.ltr,
+                                      style: GoogleFonts.abhayaLibre(
+                                        fontSize: 48,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    'A Software Developer',
-                                    textDirection: TextDirection.ltr,
-                                    style: GoogleFonts.abhayaLibre(
-                                      fontSize: 48,
+                                    Text(
+                                      'A Software Developer',
+                                      textDirection: TextDirection.ltr,
+                                      style: GoogleFonts.abhayaLibre(
+                                        fontSize: 48,
+                                      ),
                                     ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      SideBarButton(
-                                        svgl: "assets/svg/linkedin_light.svg",
-                                        svgd: "assets/svg/linkedin_dark.svg",
-                                        onTap: () {
-                                          launchUrl(Uri.parse(
-                                              "https://www.linkedin.com/in/sd2b/"));
-                                        },
-                                      ),
-                                      SideBarButton(
-                                        svgl: "assets/svg/githubl.svg",
-                                        svgd: "assets/svg/githubd.svg",
-                                        onTap: () {
-                                          launchUrl(Uri.parse(
-                                              "https://github.com/SD2B"));
-                                        },
-                                      ),
-                                      SideBarButton(
-                                        svgl: "assets/svg/insta_light.svg",
-                                        svgd: "assets/svg/insta_dark.svg",
-                                        onTap: () async {
-                                          await launchUrl(Uri.parse(
-                                              "https://www.instagram.com/s_d__d_b/"));
-                                        },
-                                      ),
-                                      SideBarButton(
-                                        svgl: "assets/svg/whatsapp_light.svg",
-                                        svgd: "assets/svg/whatsapp_dark.svg",
-                                        onTap: () {
-                                          launchUrl(Uri.parse(
-                                              "https://wa.me/9656595353"));
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                  80.height,
-                                ],
+                                    Row(
+                                      children: [
+                                        SideBarButton(
+                                          svgl: "assets/svg/linkedin_light.svg",
+                                          svgd: "assets/svg/linkedin_dark.svg",
+                                          onTap: () {
+                                            launchUrl(Uri.parse(
+                                                "https://www.linkedin.com/in/sd2b/"));
+                                          },
+                                        ),
+                                        SideBarButton(
+                                          svgl: "assets/svg/githubl.svg",
+                                          svgd: "assets/svg/githubd.svg",
+                                          onTap: () {
+                                            launchUrl(Uri.parse(
+                                                "https://github.com/SD2B"));
+                                          },
+                                        ),
+                                        SideBarButton(
+                                          svgl: "assets/svg/insta_light.svg",
+                                          svgd: "assets/svg/insta_dark.svg",
+                                          onTap: () async {
+                                            await launchUrl(Uri.parse(
+                                                "https://www.instagram.com/s_d__d_b/"));
+                                          },
+                                        ),
+                                        SideBarButton(
+                                          svgl: "assets/svg/whatsapp_light.svg",
+                                          svgd: "assets/svg/whatsapp_dark.svg",
+                                          onTap: () {
+                                            launchUrl(Uri.parse(
+                                                "https://wa.me/9656595353"));
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    80.height,
+                                  ],
+                                ),
                               ),
                             ),
                           ],

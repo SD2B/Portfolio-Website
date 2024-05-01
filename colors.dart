@@ -17,6 +17,7 @@ class ColorList {
   final Color? greyWhite;
   final Color? blackWhite;
   final Color? whiteBlack;
+  final Color? textFieldHeder;
 
   ColorList({
     this.successGreen,
@@ -34,6 +35,7 @@ class ColorList {
     this.greyWhite,
     this.blackWhite,
     this.whiteBlack,
+    this.textFieldHeder,
   });
 
   factory ColorList.light() {
@@ -53,6 +55,7 @@ class ColorList {
       blackWhite: const Color(0xFF000000),
       successGreen: const Color(0xFF269D57),
       whiteBlack: const Color(0xFFFFFFFF),
+      textFieldHeder: const Color(0xFF242424),
     );
   }
 
@@ -73,6 +76,7 @@ class ColorList {
       blackWhite: const Color(0xFFFFFFFF),
       whiteBlack: const Color(0xFF000000),
       successGreen: const Color(0xFF269D57),
+      textFieldHeder: const Color(0xFFFFFFFF),
     );
   }
 }
