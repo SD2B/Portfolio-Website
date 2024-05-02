@@ -30,7 +30,10 @@ class Skills extends ConsumerWidget {
               children: [
                 HeaderLabel(
                     header: "Skills",
-                    subHeader: "I am a Flutter Developer",
+                    para: "I am a Flutter Developer.\n"
+                        " I have experience in developing multiplatform"
+                        " softwares like Mobile apps, Web applications,"
+                        " Windows Linux and Mac softwares.\n I use Flutter framework as my primary tool.",
                     headFontSize: 40,
                     centerAlign: true),
               ],
@@ -51,6 +54,7 @@ class Skills extends ConsumerWidget {
                 )
               ],
             ),
+            20.height,
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

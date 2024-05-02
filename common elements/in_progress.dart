@@ -59,12 +59,14 @@ class NoDataFound extends StatelessWidget {
 class HeaderLabel extends StatelessWidget {
   final String header;
   final String? subHeader;
+  final String? para;
   final double? headFontSize;
   final bool centerAlign;
   const HeaderLabel(
       {super.key,
       required this.header,
       this.subHeader,
+      this.para,
       this.headFontSize,
       this.centerAlign = false});
 
@@ -88,7 +90,21 @@ class HeaderLabel extends StatelessWidget {
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                   color: ColorCode.colorList(context).ashWhiteLabel)),
-        ]
+        ],
+        if (para != null) ...[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(para ?? "",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: ColorCode.colorList(context).ashWhiteLabel)),
+            ],
+          ),
+        ],
       ],
     );
   }
