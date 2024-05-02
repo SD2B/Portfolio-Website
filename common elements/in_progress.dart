@@ -81,12 +81,14 @@ class HeaderLabel extends StatelessWidget {
                 fontSize: headFontSize ?? 24,
                 fontWeight: FontWeight.w500,
                 color: ColorCode.colorList(context).textFieldHeder)),
-        const SizedBox(height: 5),
-        Text(subHeader ?? "",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                color: ColorCode.colorList(context).ashWhiteLabel)),
+        if (subHeader != null) ...[
+          const SizedBox(height: 5),
+          Text(subHeader ?? "",
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: ColorCode.colorList(context).ashWhiteLabel)),
+        ]
       ],
     );
   }
