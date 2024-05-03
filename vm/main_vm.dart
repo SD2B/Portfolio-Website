@@ -13,6 +13,8 @@ class MainVM extends ChangeNotifier {
 
   bool isLightTheme = true;
   bool isHovered = false;
+  bool isHozzoHovered = false;
+  bool isIsseloHovered = false;
   SkillModel skillModel = const SkillModel();
   List<SkillModel> coreSkills = [
     const SkillModel(id: 1, name: 'Flutter', svg: 'assets/svg/flutter.svg'),
