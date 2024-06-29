@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_portfolio/colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../vm/riverpod.dart';
@@ -26,7 +27,15 @@ class CustomAppBar extends ConsumerWidget {
                 ),
               ),
             ),
-            const Text("CodeLife - SD"),
+            Text(
+              "Sanoop Das",
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: ColorCode.colorList(context).blackWhite,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    fontFamily: "inter",
+                  ),
+            ),
             const Spacer(),
             IconButton(
                 onPressed: () {

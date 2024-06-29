@@ -78,27 +78,16 @@ class Home extends ConsumerWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Hi,',
-                                      textDirection: TextDirection.ltr,
-                                      style: GoogleFonts.abhayaLibre(
-                                        fontSize: 48,
-                                      ),
-                                    ),
-                                    Text(
-                                      'I\'m Sanoop Das',
-                                      textDirection: TextDirection.ltr,
-                                      style: GoogleFonts.abhayaLibre(
-                                        fontSize: 48,
-                                      ),
-                                    ),
-                                    Text(
                                       'A Software Developer',
                                       textDirection: TextDirection.ltr,
-                                      style: GoogleFonts.abhayaLibre(
-                                        fontSize: 48,
-                                      ),
+                                      style:
+                                          GoogleFonts.abhayaLibre(fontSize: 48),
                                     ),
                                     Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         SideBarButton(
                                           svgl: "assets/svg/linkedin_light.svg",
