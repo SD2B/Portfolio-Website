@@ -73,7 +73,7 @@ class SideBarButton extends ConsumerWidget {
     return Column(
       children: [
         Card(
-            color: ColorCode.colorList(context).whiteBlack,
+            color: ref.watch(mainVM).isLightTheme ? Colors.white : Colors.transparent,
             child: InkWell(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
               onTap: onTap,
@@ -83,7 +83,7 @@ class SideBarButton extends ConsumerWidget {
                 hoverHeight: 60,
                 hoverWidth: 60,
                 hoverDecoration: BoxDecoration(
-                  color: grey.withOpacity(.3),
+                  // color: grey.withOpacity(.3),
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                 ),
                 padding: const EdgeInsets.all(5),

@@ -19,7 +19,7 @@ class CustomScaffold extends StatelessWidget {
       body: ImageContainer(
         duration: Duration(seconds: 10),
         transitionDuration: Duration(seconds: 5),
-        imageUrls: [for (int i = 1; i <= 5; i++) "assets/images/bg$i.jpg"],
+        imageUrls: [for (int i = 4; i <= 5; i++) "assets/images/bg$i.jpg"],
         child: Column(
           children: [
             const CustomAppBar(),
@@ -28,7 +28,7 @@ class CustomScaffold extends StatelessWidget {
                 Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: blackColor,
+                      color: Colors.black,
                     ),
                     padding: enableLeftPadding == true ? EdgeInsets.only(left: 80) : EdgeInsets.zero,
                     width: context.width() - 100,
