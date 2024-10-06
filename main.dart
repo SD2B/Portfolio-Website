@@ -4,10 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_seo/meta_seo.dart';
 
 import 'route/route.dart';
-import 'vm/riverpod.dart';
 
 void main() {
-   if (kIsWeb) {
+  if (kIsWeb) {
     MetaSEO().config();
   }
   runApp(const ProviderScope(child: MyApp()));
@@ -22,8 +21,9 @@ class MyApp extends ConsumerWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: MyTheme.getThemeData(ThemeMode.light),
-      themeMode:
-          ref.watch(mainVM).isLightTheme ? ThemeMode.light : ThemeMode.dark,
+      themeMode: ThemeMode.dark,
+      // themeMode:
+      //     ref.watch(mainVM).isLightTheme ? ThemeMode.light : ThemeMode.dark,
       darkTheme: MyTheme.getThemeData(ThemeMode.dark),
       routerConfig: myRoute,
     );
@@ -37,24 +37,15 @@ class MyTheme {
         brightness: Brightness.light,
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         textTheme: const TextTheme(
-          titleLarge: TextStyle(
-              fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
-          titleMedium: TextStyle(
-              fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
-          titleSmall: TextStyle(
-              fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
-          bodySmall: TextStyle(
-              fontSize: 12, color: Colors.black, fontWeight: FontWeight.normal),
-          bodyMedium: TextStyle(
-              fontSize: 14, color: Colors.black, fontWeight: FontWeight.normal),
-          bodyLarge: TextStyle(
-              fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
-          labelLarge: TextStyle(
-              fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
-          labelMedium: TextStyle(
-              fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
-          labelSmall: TextStyle(
-              fontSize: 12, color: Colors.black, fontWeight: FontWeight.bold),
+          titleLarge: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
+          titleMedium: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+          titleSmall: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
+          bodySmall: TextStyle(fontSize: 12, color: Colors.black, fontWeight: FontWeight.normal),
+          bodyMedium: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.normal),
+          bodyLarge: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
+          labelLarge: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
+          labelMedium: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
+          labelSmall: TextStyle(fontSize: 12, color: Colors.black, fontWeight: FontWeight.bold),
         ),
         useMaterial3: true,
       );
@@ -63,24 +54,15 @@ class MyTheme {
         brightness: Brightness.dark,
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         textTheme: const TextTheme(
-          titleLarge: TextStyle(
-              fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
-          titleMedium: TextStyle(
-              fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
-          titleSmall: TextStyle(
-              fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
-          bodySmall: TextStyle(
-              fontSize: 12, color: Colors.white, fontWeight: FontWeight.normal),
-          bodyMedium: TextStyle(
-              fontSize: 14, color: Colors.white, fontWeight: FontWeight.normal),
-          bodyLarge: TextStyle(
-              fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
-          labelLarge: TextStyle(
-              fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
-          labelMedium: TextStyle(
-              fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold),
-          labelSmall: TextStyle(
-              fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),
+          titleLarge: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
+          titleMedium: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+          titleSmall: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+          bodySmall: TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.normal),
+          bodyMedium: TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.normal),
+          bodyLarge: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+          labelLarge: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+          labelMedium: TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold),
+          labelSmall: TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),
         ),
         useMaterial3: true,
       );

@@ -66,15 +66,14 @@ class SideBarButton extends ConsumerWidget {
   final String svgl;
   final String svgd;
   final VoidCallback? onTap;
-  const SideBarButton(
-      {super.key, this.onTap, required this.svgl, required this.svgd});
+  const SideBarButton({super.key, this.onTap, required this.svgl, required this.svgd});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
         Card(
-            color: ColorCode.colorList(context).cardColor,
+            color: ColorCode.colorList(context).whiteBlack,
             child: InkWell(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
               onTap: onTap,

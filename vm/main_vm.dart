@@ -11,7 +11,7 @@ class MainVM extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool isLightTheme = true;
+  bool isLightTheme = false;
   bool isHovered = false;
   bool isHozzoHovered = false;
   bool isIsseloHovered = false;
@@ -27,8 +27,7 @@ class MainVM extends ChangeNotifier {
     const SkillModel(id: 9, name: 'Python', svg: 'assets/svg/python.svg'),
     const SkillModel(id: 10, name: 'HTML', svg: 'assets/svg/html.svg'),
     const SkillModel(id: 11, name: 'CSS', svg: 'assets/svg/css.svg'),
-    const SkillModel(
-        id: 12, name: 'JavaScript', svg: 'assets/svg/javascript.svg'),
+    const SkillModel(id: 12, name: 'JavaScript', svg: 'assets/svg/javascript.svg'),
     const SkillModel(id: 12, name: 'Api', svg: 'assets/svg/api.svg'),
   ];
   List<SkillModel> designSkills = [
@@ -37,9 +36,4 @@ class MainVM extends ChangeNotifier {
     const SkillModel(id: 3, name: 'Photoshop', svg: 'assets/svg/photoshop.svg'),
     const SkillModel(id: 6, name: 'InkScape', svg: 'assets/svg/inkscape.svg'),
   ];
-
-  void setHovered(bool bool) {
-    isHovered = bool;
-    notifyListeners();
-  }
 }

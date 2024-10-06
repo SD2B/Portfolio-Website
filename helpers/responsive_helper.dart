@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class RespoHelper {
+class ResponsiveHelper {
   static double mobileBrakePoint = 600;
   static double tabletBrakePoint = 1024;
   static double desktopBrakePoint = 1440;

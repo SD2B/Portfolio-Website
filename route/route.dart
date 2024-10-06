@@ -14,16 +14,7 @@ final GoRouter myRoute = GoRouter(
   initialLocation: "/",
   redirectLimit: 3,
   errorBuilder: (context, state) {
-    return CustomScaffold(
-        childWidget: Center(
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-          const Text('Unknown pages'),
-          ElevatedButton(
-              onPressed: () => context.go("/"), child: const Text("Back"))
-        ])));
+    return CustomScaffold(childWidget: Center(child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center, children: [const Text('Unknown pages'), ElevatedButton(onPressed: () => context.go("/"), child: const Text("Back"))])));
   },
   navigatorKey: ConstanceData.navigatorKey,
   routes: _buildRoutes(),
@@ -37,10 +28,7 @@ List<RouteBase> _buildRoutes() {
       pageBuilder: (context, state) => CustomTransitionPage(
           key: state.pageKey,
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(
-                opacity:
-                    CurveTween(curve: Curves.easeInOutSine).animate(animation),
-                child: child);
+            return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
           },
           child: const CustomScaffold()),
       routes: [
@@ -59,14 +47,10 @@ List<GoRoute> _staticRoutes() {
     GoRoute(
       path: RouteEnum.home.name,
       name: RouteEnum.home.name,
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          CustomTransitionPage(
+      pageBuilder: (BuildContext context, GoRouterState state) => CustomTransitionPage(
         key: state.pageKey,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(
-              opacity:
-                  CurveTween(curve: Curves.easeInOutSine).animate(animation),
-              child: child);
+          return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
         child: const CustomScaffold(
           childWidget: Home(),
@@ -76,44 +60,32 @@ List<GoRoute> _staticRoutes() {
     GoRoute(
       path: RouteEnum.skills.name,
       name: RouteEnum.skills.name,
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          CustomTransitionPage(
+      pageBuilder: (BuildContext context, GoRouterState state) => CustomTransitionPage(
         key: state.pageKey,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(
-              opacity:
-                  CurveTween(curve: Curves.easeInOutSine).animate(animation),
-              child: child);
+          return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
-        child: const CustomScaffold(childWidget: Skills()),
+        child: const CustomScaffold(enableLeftPadding: true, childWidget: Skills()),
       ),
     ),
     GoRoute(
       path: RouteEnum.project.name,
       name: RouteEnum.project.name,
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          CustomTransitionPage(
+      pageBuilder: (BuildContext context, GoRouterState state) => CustomTransitionPage(
         key: state.pageKey,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(
-              opacity:
-                  CurveTween(curve: Curves.easeInOutSine).animate(animation),
-              child: child);
+          return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
-        child: const CustomScaffold(childWidget: Projects()),
+        child: const CustomScaffold(enableLeftPadding: true, childWidget: Projects()),
       ),
     ),
     GoRoute(
       path: RouteEnum.education.name,
       name: RouteEnum.education.name,
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          CustomTransitionPage(
+      pageBuilder: (BuildContext context, GoRouterState state) => CustomTransitionPage(
         key: state.pageKey,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(
-              opacity:
-                  CurveTween(curve: Curves.easeInOutSine).animate(animation),
-              child: child);
+          return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
         child: const CustomScaffold(childWidget: Education()),
       ),
@@ -121,14 +93,10 @@ List<GoRoute> _staticRoutes() {
     GoRoute(
       path: RouteEnum.contact.name,
       name: RouteEnum.contact.name,
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          CustomTransitionPage(
+      pageBuilder: (BuildContext context, GoRouterState state) => CustomTransitionPage(
         key: state.pageKey,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(
-              opacity:
-                  CurveTween(curve: Curves.easeInOutSine).animate(animation),
-              child: child);
+          return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
         child: const CustomScaffold(childWidget: ContactMe()),
       ),

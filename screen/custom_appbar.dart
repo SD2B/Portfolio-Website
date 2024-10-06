@@ -15,64 +15,40 @@ class CustomAppBar extends ConsumerWidget {
         height: 60,
         child: Row(
           children: [
-            20.width,
-            Container(
-              height: 50,
-              width: 50,
-              decoration: const BoxDecoration(
-                // shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage("assets/images/file.png"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Text(
-              "Sanoop Das",
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: ColorCode.colorList(context).blackWhite,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    fontFamily: "inter",
-                  ),
-            ),
+            // 20.width,
+            // Container(
+            //   height: 50,
+            //   width: 50,
+            //   decoration: const BoxDecoration(
+            //     // shape: BoxShape.circle,
+            //     image: DecorationImage(
+            //       image: AssetImage("assets/images/file.png"),
+            //       fit: BoxFit.cover,
+            //     ),
+            //   ),
+            // ),
+            // Text(
+            //   "Sanoop Das",
+            //   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            //         color: ColorCode.colorList(context).blackWhite,
+            //         fontWeight: FontWeight.bold,
+            //         fontSize: 20,
+            //         fontFamily: "inter",
+            //       ),
+            // ),
             const Spacer(),
-            IconButton(
-                onPressed: () {
-                  ref.read(mainVM).isLightTheme =
-                      !ref.read(mainVM).isLightTheme;
-                  ref.read(mainVM).refresh();
-                },
-                icon: Icon(
-                  ref.watch(mainVM).isLightTheme
-                      ? Icons.light_mode
-                      : Icons.dark_mode,
-                )),
-            20.width,
-            // TextButton(
-            //   child: const Text('Home'),
-            //   onPressed: () {},
-            // ),
-            // TextButton(
-            //   child: const Text('Skills'),
-            //   onPressed: () {},
-            // ),
-            // TextButton(
-            //   child: const Text('Projects'),
-            //   onPressed: () {},
-            // ),
-            // TextButton(
-            //   child: const Text('Certifications'),
-            //   onPressed: () {},
-            // ),
-            // TextButton(
-            //   child: const Text('Education'),
-            //   onPressed: () {},
-            // ),
-            // TextButton(
-            //   child: const Text('Contact'),
-            //   onPressed: () {},
-            // ),
+            // IconButton(
+            //     onPressed: () {
+            //       ref.read(mainVM).isLightTheme =
+            //           !ref.read(mainVM).isLightTheme;
+            //       ref.read(mainVM).refresh();
+            //     },
+            //     icon: Icon(
+            //       ref.watch(mainVM).isLightTheme
+            //           ? Icons.light_mode
+            //           : Icons.dark_mode,
+            //     )),
+            // 20.width,
           ],
         ));
   }
