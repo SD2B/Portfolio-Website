@@ -19,6 +19,9 @@ _$WidgetBuildModelImpl _$$WidgetBuildModelImplFromJson(
       valueList: (json['valueList'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      labelList: (json['labelList'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$WidgetBuildModelImplToJson(
@@ -32,4 +35,5 @@ Map<String, dynamic> _$$WidgetBuildModelImplToJson(
       'count': instance.count,
       'svg': instance.svg,
       'valueList': instance.valueList,
+      'labelList': instance.labelList,
     };

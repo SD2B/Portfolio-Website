@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tilt/flutter_tilt.dart';
-import 'package:my_portfolio/colors.dart';
 import 'package:my_portfolio/common%20elements/in_progress.dart';
+import 'package:my_portfolio/screen/projects/project_card.dart';
+import 'package:my_portfolio/screen/projects/project_list.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import '../../vm/riverpod.dart';
 
 class Projects extends ConsumerWidget {
   const Projects({super.key});
@@ -32,49 +28,9 @@ class Projects extends ConsumerWidget {
             spacing: 30,
             runSpacing: 30,
             children: [
-              for (int i = 0; i < 10; i++)
-                Tilt(
-                  lightConfig: LightConfig(color: Colors.yellow),
-                  shadowConfig: ShadowConfig(color: transparentColor),
-                  borderRadius: BorderRadius.circular(10),
-                  child: Card(
-                    color: ref.read(mainVM).isHozzoHovered == true ? ColorCode.colorList(context).whiteBlack : ColorCode.colorList(context).whiteBlack,
-                    child: InkWell(
-                      onTap: () {
-                        launchUrl(Uri.parse("https://hozzowash.com/"));
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: ColorCode.colorList(context).ashWhiteLabel!.withOpacity(.2),
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 100,
-                              width: 230,
-                              decoration: BoxDecoration(
-                                image: const DecorationImage(image: AssetImage('assets/images/hozzologo.png'), fit: BoxFit.cover),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            10.height,
-                            const HeaderLabel(
-                              header: "Hozzo",
-                              headFontSize: 20,
-                              subHeader: "No.1 Car Wash App In India",
-                              centerAlign: true,
-                            ),
-                          ],
-                        ),
-                      )
-                        
-                    ),
-                  ),
-                ),
+              ...ProjectList.projectList.map(
+                (e) => ProjectCard(model: e),
+              ),
               10.width,
             ],
           )

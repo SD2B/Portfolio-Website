@@ -14,6 +14,7 @@ class WidgetBuildModel with _$WidgetBuildModel {
     String? count,
     String? svg,
     List<String>? valueList,
+    List<String>? labelList,
   }) = _WidgetBuildModel;
 
   factory WidgetBuildModel.fromJson(Map<String, dynamic> json) => _$WidgetBuildModelFromJson(json);

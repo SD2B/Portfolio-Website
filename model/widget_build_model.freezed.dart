@@ -28,6 +28,7 @@ mixin _$WidgetBuildModel {
   String? get count => throw _privateConstructorUsedError;
   String? get svg => throw _privateConstructorUsedError;
   List<String>? get valueList => throw _privateConstructorUsedError;
+  List<String>? get labelList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +50,8 @@ abstract class $WidgetBuildModelCopyWith<$Res> {
       String? value,
       String? count,
       String? svg,
-      List<String>? valueList});
+      List<String>? valueList,
+      List<String>? labelList});
 }
 
 /// @nodoc
@@ -73,6 +75,7 @@ class _$WidgetBuildModelCopyWithImpl<$Res, $Val extends WidgetBuildModel>
     Object? count = freezed,
     Object? svg = freezed,
     Object? valueList = freezed,
+    Object? labelList = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -107,6 +110,10 @@ class _$WidgetBuildModelCopyWithImpl<$Res, $Val extends WidgetBuildModel>
           ? _value.valueList
           : valueList // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      labelList: freezed == labelList
+          ? _value.labelList
+          : labelList // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -127,7 +134,8 @@ abstract class _$$WidgetBuildModelImplCopyWith<$Res>
       String? value,
       String? count,
       String? svg,
-      List<String>? valueList});
+      List<String>? valueList,
+      List<String>? labelList});
 }
 
 /// @nodoc
@@ -149,6 +157,7 @@ class __$$WidgetBuildModelImplCopyWithImpl<$Res>
     Object? count = freezed,
     Object? svg = freezed,
     Object? valueList = freezed,
+    Object? labelList = freezed,
   }) {
     return _then(_$WidgetBuildModelImpl(
       id: freezed == id
@@ -183,6 +192,10 @@ class __$$WidgetBuildModelImplCopyWithImpl<$Res>
           ? _value._valueList
           : valueList // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      labelList: freezed == labelList
+          ? _value._labelList
+          : labelList // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -198,8 +211,10 @@ class _$WidgetBuildModelImpl implements _WidgetBuildModel {
       this.value,
       this.count,
       this.svg,
-      final List<String>? valueList})
-      : _valueList = valueList;
+      final List<String>? valueList,
+      final List<String>? labelList})
+      : _valueList = valueList,
+        _labelList = labelList;
 
   factory _$WidgetBuildModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$WidgetBuildModelImplFromJson(json);
@@ -228,9 +243,19 @@ class _$WidgetBuildModelImpl implements _WidgetBuildModel {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<String>? _labelList;
+  @override
+  List<String>? get labelList {
+    final value = _labelList;
+    if (value == null) return null;
+    if (_labelList is EqualUnmodifiableListView) return _labelList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'WidgetBuildModel(id: $id, title: $title, subTitle: $subTitle, description: $description, value: $value, count: $count, svg: $svg, valueList: $valueList)';
+    return 'WidgetBuildModel(id: $id, title: $title, subTitle: $subTitle, description: $description, value: $value, count: $count, svg: $svg, valueList: $valueList, labelList: $labelList)';
   }
 
   @override
@@ -248,13 +273,24 @@ class _$WidgetBuildModelImpl implements _WidgetBuildModel {
             (identical(other.count, count) || other.count == count) &&
             (identical(other.svg, svg) || other.svg == svg) &&
             const DeepCollectionEquality()
-                .equals(other._valueList, _valueList));
+                .equals(other._valueList, _valueList) &&
+            const DeepCollectionEquality()
+                .equals(other._labelList, _labelList));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, subTitle, description,
-      value, count, svg, const DeepCollectionEquality().hash(_valueList));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      title,
+      subTitle,
+      description,
+      value,
+      count,
+      svg,
+      const DeepCollectionEquality().hash(_valueList),
+      const DeepCollectionEquality().hash(_labelList));
 
   @JsonKey(ignore: true)
   @override
@@ -280,7 +316,8 @@ abstract class _WidgetBuildModel implements WidgetBuildModel {
       final String? value,
       final String? count,
       final String? svg,
-      final List<String>? valueList}) = _$WidgetBuildModelImpl;
+      final List<String>? valueList,
+      final List<String>? labelList}) = _$WidgetBuildModelImpl;
 
   factory _WidgetBuildModel.fromJson(Map<String, dynamic> json) =
       _$WidgetBuildModelImpl.fromJson;
@@ -301,6 +338,8 @@ abstract class _WidgetBuildModel implements WidgetBuildModel {
   String? get svg;
   @override
   List<String>? get valueList;
+  @override
+  List<String>? get labelList;
   @override
   @JsonKey(ignore: true)
   _$$WidgetBuildModelImplCopyWith<_$WidgetBuildModelImpl> get copyWith =>
