@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:my_portfolio/screen/contact/contact.dart';
 import 'package:my_portfolio/screen/education/education.dart';
 import 'package:my_portfolio/screen/home.dart';
+import 'package:my_portfolio/screen/plugins/plugins.dart';
 import 'package:my_portfolio/screen/projects/projects.dart';
 
 import '../helpers/common_enums.dart';
@@ -65,7 +66,7 @@ List<GoRoute> _staticRoutes() {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
-        child: const CustomScaffold(enableLeftPadding: true, childWidget: Skills()),
+        child: const CustomScaffold(padding: EdgeInsets.symmetric(horizontal: 80, vertical: 50), childWidget: Skills()),
       ),
     ),
     GoRoute(
@@ -76,7 +77,18 @@ List<GoRoute> _staticRoutes() {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
-        child: const CustomScaffold(enableLeftPadding: true, childWidget: Projects()),
+        child: const CustomScaffold(padding: EdgeInsets.fromLTRB(120, 50, 50, 50), childWidget: Projects()),
+      ),
+    ),
+    GoRoute(
+      path: RouteEnum.plugins.name,
+      name: RouteEnum.plugins.name,
+      pageBuilder: (BuildContext context, GoRouterState state) => CustomTransitionPage(
+        key: state.pageKey,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
+        },
+        child: const CustomScaffold(padding: EdgeInsets.fromLTRB(80, 50, 50, 0), childWidget: Plugins()),
       ),
     ),
     GoRoute(

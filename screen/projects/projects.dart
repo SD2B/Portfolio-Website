@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
-import 'package:hovering/hovering.dart';
 import 'package:my_portfolio/colors.dart';
 import 'package:my_portfolio/common%20elements/in_progress.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -19,7 +17,7 @@ class Projects extends ConsumerWidget {
     return SizedBox(
       height: context.height() - 88,
       width: context.width() - 88,
-      child: Column(
+      child: AnimatedScrollView(
         children: [
           const HeaderLabel(
               header: "Projects",
@@ -34,7 +32,7 @@ class Projects extends ConsumerWidget {
             spacing: 30,
             runSpacing: 30,
             children: [
-              for (int i = 0; i < 5; i++)
+              for (int i = 0; i < 10; i++)
                 Tilt(
                   lightConfig: LightConfig(color: Colors.yellow),
                   shadowConfig: ShadowConfig(color: transparentColor),
@@ -44,10 +42,6 @@ class Projects extends ConsumerWidget {
                     child: InkWell(
                       onTap: () {
                         launchUrl(Uri.parse("https://hozzowash.com/"));
-                      },
-                      onHover: (value) {
-                        ref.read(mainVM).isHozzoHovered = value;
-                        ref.read(mainVM).refresh();
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -77,16 +71,7 @@ class Projects extends ConsumerWidget {
                           ],
                         ),
                       )
-                          .animate()
-                          .fade(
-                            duration: Duration(milliseconds: 500),
-                            curve: Curves.easeIn,
-                          )
-                          .animate()
-                          .scale(
-                            duration: Duration(milliseconds: 500),
-                            curve: ref.watch(mainVM).isHozzoHovered == true ? Curves.easeIn : Curves.easeOut,
-                          ),
+                        
                     ),
                   ),
                 ),

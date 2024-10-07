@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/colors.dart';
-import 'package:my_portfolio/common%20elements/tilt_effect.dart';
 import 'package:my_portfolio/helpers/responsive_helper.dart';
-import 'package:my_portfolio/screen/custom_sidebar.dart';
+import 'package:my_portfolio/screen/sidebar/side_bar_button.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 

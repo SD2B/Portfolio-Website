@@ -3,14 +3,13 @@ import 'package:my_portfolio/colors.dart';
 import 'package:my_portfolio/common%20elements/image_container.dart';
 import 'package:my_portfolio/screen/custom_appbar.dart';
 import 'package:my_portfolio/screen/custom_sidebar.dart';
+import 'package:my_portfolio/screen/home.dart';
 import 'package:nb_utils/nb_utils.dart';
-
-import 'home.dart';
 
 class CustomScaffold extends StatelessWidget {
   final Widget? childWidget;
-  final bool? enableLeftPadding;
-  const CustomScaffold({super.key, this.childWidget, this.enableLeftPadding = false});
+  final EdgeInsetsGeometry? padding;
+  const CustomScaffold({super.key, this.childWidget, this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class CustomScaffold extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.black,
                     ),
-                    padding: enableLeftPadding == true ? EdgeInsets.only(left: 80) : EdgeInsets.zero,
+                    padding: padding ?? EdgeInsets.zero,
                     width: context.width() - 100,
                     height: context.height() - 100,
                     child: childWidget ?? const Home()),

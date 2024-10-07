@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hovering/hovering.dart';
-import 'package:my_portfolio/vm/riverpod.dart';
+import 'package:my_portfolio/screen/sidebar/side_bar_button.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../colors.dart';
 import '../helpers/common_enums.dart';
 
 class CustomSideBar extends StatelessWidget {
-  const CustomSideBar({
-    super.key,
-  });
+  const CustomSideBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +36,18 @@ class CustomSideBar extends StatelessWidget {
                     context.goNamed(RouteEnum.project.name);
                   }),
               SideBarButton(
-                svgl: "assets/svg/edul.svg",
-                svgd: "assets/svg/edud.svg",
-                onTap: () {
-                  context.goNamed(RouteEnum.education.name);
-                },
-              ),
+                  svgl: "assets/svg/plugin.svg",
+                  svgd: "assets/svg/plugin.svg",
+                  onTap: () {
+                    context.goNamed(RouteEnum.plugins.name);
+                  }),
+              // SideBarButton(
+              //   svgl: "assets/svg/edul.svg",
+              //   svgd: "assets/svg/edud.svg",
+              //   onTap: () {
+              //     context.goNamed(RouteEnum.education.name);
+              //   },
+              // ),
               SideBarButton(
                 svgl: "assets/svg/contactl.svg",
                 svgd: "assets/svg/contactd.svg",
@@ -58,44 +58,5 @@ class CustomSideBar extends StatelessWidget {
             ],
           ),
         ));
-  }
-}
-
-class SideBarButton extends ConsumerWidget {
-  // final IconData icon;
-  final String svgl;
-  final String svgd;
-  final VoidCallback? onTap;
-  const SideBarButton({super.key, this.onTap, required this.svgl, required this.svgd});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
-      children: [
-        Card(
-            color: ref.watch(mainVM).isLightTheme ? Colors.white : Colors.transparent,
-            child: InkWell(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              onTap: onTap,
-              child: HoverAnimatedContainer(
-                width: 40,
-                height: 40,
-                hoverHeight: 60,
-                hoverWidth: 60,
-                hoverDecoration: BoxDecoration(
-                  // color: grey.withOpacity(.3),
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                ),
-                padding: const EdgeInsets.all(5),
-                child: SvgPicture.asset(
-                  ref.watch(mainVM).isLightTheme ? svgl : svgd,
-                  height: 30,
-                  width: 30,
-                ),
-              ),
-            )),
-        10.height
-      ],
-    );
   }
 }
