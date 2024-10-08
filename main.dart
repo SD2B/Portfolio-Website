@@ -18,7 +18,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
+      title: 'Code Life',
       debugShowCheckedModeBanner: false,
       theme: MyTheme.getThemeData(ThemeMode.light),
       themeMode: ThemeMode.dark,
