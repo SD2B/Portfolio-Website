@@ -19,10 +19,10 @@ class Plugins extends ConsumerWidget {
         children: [
           const HeaderLabel(
               header: "Plugins",
-              para: "\"\"I have worked on many Plugins.\n"
-                  " I have experience in developing multiplatform"
-                  " softwares like Mobile apps, Web applications,"
-                  " Windows Linux and Mac softwares.\n I use Flutter framework as my primary tool.\"\"",
+              // para: "\"\"I have worked on many Plugins.\n"
+              //     " I have experience in developing multiplatform"
+              //     " softwares like Mobile apps, Web applications,"
+              //     " Windows Linux and Mac softwares.\n I use Flutter framework as my primary tool.\"\"",
               headFontSize: 40,
               centerAlign: true),
           20.height,
