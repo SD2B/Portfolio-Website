@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:metaballs/metaballs.dart';
+import 'package:my_portfolio/common%20elements/particle_background.dart';
 import 'package:my_portfolio/helpers/responsive_helper.dart';
 import 'package:my_portfolio/screen/sidebar/side_bar_button.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Home extends ConsumerWidget {
+class Home extends HookConsumerWidget {
   const Home({super.key});
 
   @override
@@ -36,7 +38,7 @@ class Home extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          HomePageProfileImage(),
+                          const HomePageProfileImage(),
                           50.width,
                           Expanded(
                             child: SizedBox(
@@ -160,20 +162,40 @@ class HomePageProfileImage extends StatelessWidget {
       child: Center(
         child: Stack(
           children: [
-            CircleAvatar(
-              backgroundColor: Colors.black,
-              backgroundImage: AssetImage("assets/images/myPic2.png"),
-              radius: 200,
-            ),
             Tilt(
               borderRadius: BorderRadius.circular(500),
-              lightConfig: LightConfig(color: transparentColor),
-              // shadowConfig: ShadowConfig(color: ColorCode.colorList(context).),
-              child: CircleAvatar(
-                backgroundColor: Colors.black.withOpacity(.6),
-                radius: 200,
+              lightConfig: const LightConfig(color: Colors.transparent),
+              shadowConfig: const ShadowConfig(color: transparentColor),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(500),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black,
+                      offset: Offset(0, 4),
+                      blurRadius: 50,
+                      spreadRadius: 50,
+                    ),
+                  ],
+                ),
+                child: Card(
+                  elevation: 9,
+                  shadowColor: Colors.black.withOpacity(0.5),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(500),
+                  ),
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.black,
+                    backgroundImage: AssetImage("assets/images/myPic2.webp"),
+                    radius: 200,
+                  ),
+                ),
               ),
             ),
+            // CircleAvatar(
+            //   backgroundColor: Colors.black.withOpacity(.4),
+            //   radius: 200,
+            // ),
           ],
         ),
       ),

@@ -77,7 +77,7 @@ List<GoRoute> _staticRoutes() {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
-        child: const CustomScaffold(padding: EdgeInsets.fromLTRB(120, 50, 50, 50), childWidget: Projects()),
+        child: const CustomScaffold(padding: EdgeInsets.fromLTRB(80, 50, 50, 50), childWidget: Projects()),
       ),
     ),
     GoRoute(
