@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:metaballs/metaballs.dart';
-import 'package:my_portfolio/common%20elements/particle_background.dart';
 import 'package:my_portfolio/helpers/responsive_helper.dart';
 import 'package:my_portfolio/screen/sidebar/side_bar_button.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -49,9 +47,12 @@ class Home extends HookConsumerWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Hi',
+                                    'Hi,',
                                     textDirection: TextDirection.ltr,
-                                    style: GoogleFonts.abhayaLibre(fontSize: 48),
+                                    style: GoogleFonts.abhayaLibre(
+                                      fontSize: 65,
+                                      color: Color(0xFFcf8e7c),
+                                    ),
                                   ),
                                   Text(
                                     'I\'m Sanoop Das',
@@ -95,6 +96,15 @@ class Home extends HookConsumerWidget {
                                           launchUrl(Uri.parse("https://wa.me/9656595353"));
                                         },
                                       ),
+                                      SideBarButton(
+                                        svgl: "assets/svg/resume.svg",
+                                        svgd: "assets/svg/resume.svg",
+                                        onTap: () {
+                                          launchUrl(Uri.parse("https://drive.google.com/file/d/1z0wfR2q6QVkAE7Kx3AKc8r4OgF_yIKeV/view?usp=sharing"));
+
+                                          // showDialog(context: context, builder: (context) => AlertDialog(content: SfPdfViewer.network("https://drive.google.com/file/d/1JZL8TBNtzNi8hEOWGz4P2VMnE8DeLhGG/view?usp=sharing")));
+                                        },
+                                      ),
                                     ],
                                   ),
                                   80.height,
@@ -119,7 +129,7 @@ class Home extends HookConsumerWidget {
                                   'Hi,',
                                   textDirection: TextDirection.ltr,
                                   style: GoogleFonts.abhayaLibre(
-                                    fontSize: 48,
+                                    fontSize: 20,
                                   ),
                                 ),
                                 Text(
@@ -186,7 +196,7 @@ class HomePageProfileImage extends StatelessWidget {
                   ),
                   child: const CircleAvatar(
                     backgroundColor: Colors.black,
-                    backgroundImage: AssetImage("assets/images/myPic2.webp"),
+                    backgroundImage: AssetImage("assets/images/newprofile.webp"),
                     radius: 200,
                   ),
                 ),

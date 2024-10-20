@@ -32,6 +32,7 @@ class SideBarButton extends ConsumerWidget {
                 padding: const EdgeInsets.all(5),
                 child: SvgPicture.asset(
                   ref.watch(mainVM).isLightTheme ? svgl : svgd,
+                  color: Color(0xFFcf8e7c),
                   height: 30,
                   width: 30,
                 ),

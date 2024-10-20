@@ -13,7 +13,7 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tilt(
-        lightConfig: LightConfig(color: Colors.yellow),
+        lightConfig: LightConfig(color: Color(0xFFcf8e7c)),
         shadowConfig: ShadowConfig(color: transparentColor),
         borderRadius: BorderRadius.circular(10),
         child: Container(

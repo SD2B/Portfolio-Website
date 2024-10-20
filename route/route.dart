@@ -15,7 +15,7 @@ final GoRouter myRoute = GoRouter(
   initialLocation: "/",
   redirectLimit: 3,
   errorBuilder: (context, state) {
-    return CustomScaffold(childWidget: Center(child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center, children: [const Text('Unknown pages'), ElevatedButton(onPressed: () => context.go("/"), child: const Text("Back"))])));
+    return CustomScaffold(child: Center(child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center, children: [const Text('Unknown pages'), ElevatedButton(onPressed: () => context.go("/"), child: const Text("Back"))])));
   },
   navigatorKey: ConstanceData.navigatorKey,
   routes: _buildRoutes(),
@@ -54,7 +54,7 @@ List<GoRoute> _staticRoutes() {
           return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
         child: const CustomScaffold(
-          childWidget: Home(),
+          child: Home(),
         ),
       ),
     ),
@@ -66,7 +66,7 @@ List<GoRoute> _staticRoutes() {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
-        child: const CustomScaffold(padding: EdgeInsets.symmetric(horizontal: 80, vertical: 50), childWidget: Skills()),
+        child: const CustomScaffold(padding: EdgeInsets.symmetric(horizontal: 80, vertical: 50), child: Skills()),
       ),
     ),
     GoRoute(
@@ -77,7 +77,7 @@ List<GoRoute> _staticRoutes() {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
-        child: const CustomScaffold(padding: EdgeInsets.fromLTRB(80, 50, 50, 50), childWidget: Projects()),
+        child: const CustomScaffold(padding: EdgeInsets.fromLTRB(80, 50, 50, 50), child: Projects()),
       ),
     ),
     GoRoute(
@@ -88,7 +88,7 @@ List<GoRoute> _staticRoutes() {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
-        child: const CustomScaffold(padding: EdgeInsets.fromLTRB(80, 50, 50, 0), childWidget: Plugins()),
+        child: const CustomScaffold(padding: EdgeInsets.fromLTRB(80, 50, 50, 0), child: Plugins()),
       ),
     ),
     GoRoute(
@@ -99,7 +99,7 @@ List<GoRoute> _staticRoutes() {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
-        child: const CustomScaffold(childWidget: Education()),
+        child: const CustomScaffold(child: Education()),
       ),
     ),
     GoRoute(
@@ -110,7 +110,7 @@ List<GoRoute> _staticRoutes() {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
         },
-        child: const CustomScaffold(childWidget: ContactMe()),
+        child: const CustomScaffold(child: ContactMe()),
       ),
     ),
   ];
@@ -122,7 +122,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CustomScaffold(
-      childWidget: Center(
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

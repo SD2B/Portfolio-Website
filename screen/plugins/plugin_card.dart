@@ -12,7 +12,7 @@ class PluginCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tilt(
-        lightConfig: const LightConfig(color: Colors.yellow),
+        lightConfig: const LightConfig(color: Color(0xFFcf8e7c)),
         shadowConfig: const ShadowConfig(color: transparentColor),
         borderRadius: BorderRadius.circular(20),
         child: Container(
