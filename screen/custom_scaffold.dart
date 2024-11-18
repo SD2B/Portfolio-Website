@@ -1,25 +1,74 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:metaballs/metaballs.dart';
-import 'package:my_portfolio/colors.dart';
 import 'package:my_portfolio/common%20elements/in_progress.dart';
 import 'package:my_portfolio/helpers/responsive_helper.dart';
+import 'package:my_portfolio/helpers/sddb_helper.dart';
+import 'package:my_portfolio/screen/contact/contact.dart';
 import 'package:my_portfolio/screen/custom_appbar.dart';
 import 'package:my_portfolio/screen/custom_sidebar.dart';
 import 'package:my_portfolio/screen/home.dart';
-import 'package:nb_utils/nb_utils.dart';
+import 'package:my_portfolio/screen/plugins/plugins.dart';
+import 'package:my_portfolio/screen/projects/projects.dart';
+import 'package:my_portfolio/screen/skills/skills.dart';
+import 'package:page_flow/page_flow.dart';
 
-class CustomScaffold extends StatelessWidget {
+class CustomScaffold extends HookWidget {
   final Widget? child;
   final EdgeInsetsGeometry? padding;
   const CustomScaffold({super.key, this.child, this.padding});
 
   @override
   Widget build(BuildContext context) {
+    final scrollViewController = useRef(MultiPageViewController()).value;
     final respoW = ResponsiveHelper.isDesktop(context);
+    final isAtBottom = useState(false);
+
+    // Create references to each section using useRef
+
+    // Animation controller for the bounce effect
+    final animationController = useAnimationController(
+      duration: const Duration(milliseconds: 500),
+    );
+
+    // Periodically start the bounce animation
+    useEffect(() {
+      final timer = Timer.periodic(const Duration(seconds: 2), (_) {
+        animationController.forward().then((_) => animationController.reverse());
+      });
+      return timer.cancel;
+    }, []);
+
+    // Animation for bouncing
+    final _animation = Tween<Offset>(begin: Offset.zero, end: const Offset(0, -1)).animate(CurvedAnimation(
+      parent: animationController,
+      curve: Curves.easeOut,
+    ));
+
+    // // Scroll to the top or bottom
+    // void _scrollToBottom() => scrollController.animateTo(
+    //       scrollController.position.maxScrollExtent,
+    //       duration: const Duration(seconds: 2),
+    //       curve: Curves.easeOut,
+    //     );
+
+    // void _scrollToTop() => scrollController.animateTo(
+    //       scrollController.position.minScrollExtent,
+    //       duration: const Duration(seconds: 2),
+    //       curve: Curves.easeOut,
+    //     );
+    final sections = [
+      HomeMainSection(),
+      Skills(),
+      Projects(),
+      Plugins(),
+      ContactMe(),
+    ];
     return Scaffold(
-      backgroundColor: ColorCode.colorList(context).cardColor,
+      backgroundColor: Colors.black,
       body: !respoW
           ? SizedBox(
               width: context.width(),
@@ -36,11 +85,9 @@ class CustomScaffold extends StatelessWidget {
                 radius: 0.5,
               ),
               gradient: const LinearGradient(colors: [
-                // Color.fromARGB(255, 90, 60, 255),
-                // Color.fromARGB(255, 120, 255, 255),
-                Color(0xFFcf8e7c), // Main color
-                Color(0xFFf6c2b5), // Light Peach
-                Color(0xFFe76a5b), // Salmon
+                Color(0xFFD6D6D6),
+                Color(0xFFA1A1A1),
+                Color(0xFF8C8C8C),
               ], begin: Alignment.bottomRight, end: Alignment.topLeft),
               metaballs: 40,
               animationDuration: const Duration(milliseconds: 200),
@@ -58,20 +105,55 @@ class CustomScaffold extends StatelessWidget {
                       BackdropFilter(
                         filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
                         child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.black.withOpacity(.6),
-                          ),
-                          padding: padding ?? EdgeInsets.zero,
-                          width: context.width() - 100,
-                          height: context.height() - 100,
-                          child: child ?? const Home(),
-                          // child: AnimatedScrollView(children: []),
-                        ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.black.withOpacity(.6),
+                            ),
+                            padding: padding ?? EdgeInsets.zero,
+                            width: context.width() - 100,
+                            height: context.height() - 100,
+                            child: Container(
+                              width: 600,
+                              height: 600,
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30),
+                                ),
+                              ),
+                              child: Stack(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SizedBox(
+                                      height: context.height() - 88,
+                                      child: PageFlow(
+                                        controller: scrollViewController,
+                                        sections: [for (int i = 0; i < sections.length; i++) PageWidget(title: "$i", child: Padding(padding: EdgeInsets.only(bottom: (i != (sections.length - 1)) ? 100 : 0), child: sections[i]))],
+                                      ),
+                                    ),
+                                  ),
+                                  // Positioned(
+                                  //   bottom: 20,
+                                  //   left: 0,
+                                  //   right: 0,
+                                  //   child: Row(
+                                  //     mainAxisAlignment: MainAxisAlignment.center,
+                                  //     children: [
+                                  //       InkWell(
+                                  //         // onTap: () => isAtBottom.value ? _scrollToTop() : _scrollToBottom(),
+                                  //         onTap: () => printx(scrollViewController.keys),
+                                  //         child: ScrollArrowButton(animation: _animation, isAtBottom: isAtBottom),
+                                  //       ),
+                                  //     ],
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            )),
                       ),
-                      const Positioned(
+                      Positioned(
                         left: 10,
-                        child: CustomSideBar(),
+                        child: CustomSideBar(scrollViewController: scrollViewController),
                       )
                     ],
                   ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nb_utils/nb_utils.dart';
 
 class ColorList {
   final Color? primary;
@@ -43,7 +42,7 @@ class ColorList {
       borderColor: const Color(0xFFC4283C).withOpacity(.1),
       primary: const Color(0xFFC4283C),
       constPrColor: const Color(0xFFC4283C),
-      menuButtonColor: darkGray,
+      // menuButtonColor: darkGray,
       positiveGreen: const Color(0xFF007C5A),
       ashWhiteLabel: const Color(0xFF909090),
       tabBarColor: const Color(0xFFFFFFFF),
@@ -64,10 +63,10 @@ class ColorList {
       borderColor: const Color(0xFFFFFFFF).withOpacity(.4),
       primary: const Color(0xFFF4384F),
       constPrColor: const Color(0xFFC4283C),
-      menuButtonColor: whiteColor,
+      // menuButtonColor: whiteColor,
       positiveGreen: const Color(0xFF00A87A),
       ashWhiteLabel: const Color(0xFFFFFFFF),
-      tabBarColor: transparentColor,
+      tabBarColor: Colors.transparent,
       redWhiteOpacity: const Color(0xFFFFFFFF).withOpacity(.3),
       redWhite: const Color(0xFFFFFFFF),
       redOpacityWhite: const Color(0xFFFFFFFF),
@@ -83,8 +82,6 @@ class ColorList {
 
 class ColorCode {
   static ColorList colorList(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.light
-        ? ColorList.light()
-        : ColorList.dark();
+    return Theme.of(context).brightness == Brightness.light ? ColorList.light() : ColorList.dark();
   }
 }

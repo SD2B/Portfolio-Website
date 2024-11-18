@@ -20,5 +20,11 @@ class PluginList {
       value: "https://pub.dev/packages/custom_overlay_popup",
       valueList: [" ANDRIOD ", " IOS ", " WINDOWS ", " MACOS ", " LINUX ", " WEB"],
     ),
+    WidgetBuildModel(
+      title: "Page Flow",
+      subTitle: "A Flutter widget for managing multi-page views with inbuilt navigation.",
+      value: "https://pub.dev/packages/page_flow",
+      valueList: [" ANDRIOD ", " IOS ", " WINDOWS ", " MACOS ", " LINUX ", " WEB"],
+    ),
   ];
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/common%20elements/in_progress.dart';
-import 'package:nb_utils/nb_utils.dart';
+import 'package:my_portfolio/helpers/sddb_helper.dart';
 
 class Education extends ConsumerWidget {
   const Education({super.key});

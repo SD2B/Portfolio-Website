@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hovering/hovering.dart';
+import 'package:my_portfolio/helpers/sddb_helper.dart';
 import 'package:my_portfolio/vm/riverpod.dart';
-import 'package:nb_utils/nb_utils.dart';
 
 class SideBarButton extends ConsumerWidget {
   final String svgl;
@@ -32,7 +32,10 @@ class SideBarButton extends ConsumerWidget {
                 padding: const EdgeInsets.all(5),
                 child: SvgPicture.asset(
                   ref.watch(mainVM).isLightTheme ? svgl : svgd,
-                  color: Color(0xFFcf8e7c),
+                  colorFilter: const ColorFilter.mode(
+                    Color(0xFFbcbcbc),
+                    BlendMode.srcIn,
+                  ),
                   height: 30,
                   width: 30,
                 ),

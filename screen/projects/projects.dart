@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_portfolio/common%20elements/animated_scroll_view.dart';
 import 'package:my_portfolio/common%20elements/in_progress.dart';
+import 'package:my_portfolio/helpers/sddb_helper.dart';
 import 'package:my_portfolio/screen/projects/project_card.dart';
 import 'package:my_portfolio/screen/projects/project_list.dart';
-import 'package:nb_utils/nb_utils.dart';
 
 class Projects extends ConsumerWidget {
   const Projects({super.key});
@@ -11,7 +12,6 @@ class Projects extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
-      height: context.height() - 88,
       width: context.width() - 88,
       child: Padding(
         padding: const EdgeInsets.only(left: 20.0),
@@ -26,22 +26,15 @@ class Projects extends ConsumerWidget {
                 headFontSize: 40,
                 centerAlign: true),
             20.height,
-            SizedBox(
-              height: context.height() - 320,
-              child: AnimatedScrollView(
-                children: [
-                  Wrap(
-                    spacing: 30,
-                    runSpacing: 30,
-                    children: [
-                      ...ProjectList.projectList.map(
-                        (e) => ProjectCard(model: e),
-                      ),
-                      10.width,
-                    ],
-                  ),
-                ],
-              ),
+            Wrap(
+              spacing: 30,
+              runSpacing: 30,
+              children: [
+                ...ProjectList.projectList.map(
+                  (e) => ProjectCard(model: e),
+                ),
+                10.width,
+              ],
             )
           ],
         ),

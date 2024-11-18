@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:my_portfolio/colors.dart';
+import 'package:my_portfolio/helpers/sddb_helper.dart';
 import 'package:my_portfolio/model/widget_build_model.dart';
-import 'package:nb_utils/nb_utils.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatelessWidget {
@@ -13,8 +14,8 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tilt(
-        lightConfig: LightConfig(color: Color(0xFFcf8e7c)),
-        shadowConfig: ShadowConfig(color: transparentColor),
+        lightConfig: LightConfig(color: Color(0xFFbcbcbc)),
+        shadowConfig: ShadowConfig(color: Colors.transparent),
         borderRadius: BorderRadius.circular(10),
         child: Container(
           height: 300,

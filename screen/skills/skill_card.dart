@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:my_portfolio/colors.dart';
-import 'package:nb_utils/nb_utils.dart';
+import 'package:my_portfolio/helpers/sddb_helper.dart';
 
 class SkillCard extends ConsumerWidget {
   final String skillName;

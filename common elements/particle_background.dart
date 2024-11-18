@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -52,7 +51,7 @@ class ParticlePainter extends CustomPainter {
 class ParticleBackground extends HookWidget {
   final Widget child;
 
-  const ParticleBackground({required this.child, Key? key}) : super(key: key);
+  const ParticleBackground({required this.child, super.key});
 
   @override
   Widget build(BuildContext context) {
