@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -25,41 +24,7 @@ class CustomScaffold extends HookWidget {
   Widget build(BuildContext context) {
     final scrollViewController = useRef(MultiPageViewController()).value;
     final respoW = ResponsiveHelper.isDesktop(context);
-    final isAtBottom = useState(false);
 
-    // Create references to each section using useRef
-
-    // Animation controller for the bounce effect
-    final animationController = useAnimationController(
-      duration: const Duration(milliseconds: 500),
-    );
-
-    // Periodically start the bounce animation
-    useEffect(() {
-      final timer = Timer.periodic(const Duration(seconds: 2), (_) {
-        animationController.forward().then((_) => animationController.reverse());
-      });
-      return timer.cancel;
-    }, []);
-
-    // Animation for bouncing
-    final _animation = Tween<Offset>(begin: Offset.zero, end: const Offset(0, -1)).animate(CurvedAnimation(
-      parent: animationController,
-      curve: Curves.easeOut,
-    ));
-
-    // // Scroll to the top or bottom
-    // void _scrollToBottom() => scrollController.animateTo(
-    //       scrollController.position.maxScrollExtent,
-    //       duration: const Duration(seconds: 2),
-    //       curve: Curves.easeOut,
-    //     );
-
-    // void _scrollToTop() => scrollController.animateTo(
-    //       scrollController.position.minScrollExtent,
-    //       duration: const Duration(seconds: 2),
-    //       curve: Curves.easeOut,
-    //     );
     final sections = [
       HomeMainSection(),
       Skills(),
@@ -128,25 +93,10 @@ class CustomScaffold extends HookWidget {
                                       height: context.height() - 88,
                                       child: PageFlow(
                                         controller: scrollViewController,
-                                        sections: [for (int i = 0; i < sections.length; i++) PageWidget(title: "$i", child: Padding(padding: EdgeInsets.only(bottom: (i != (sections.length - 1)) ? 100 : 0), child: sections[i]))],
+                                        sections: [30.height, for (int i = 0; i < sections.length; i++) PageWidget(title: "$i", child: Padding(padding: EdgeInsets.only(bottom: (i != (sections.length - 1)) ? 100 : 0), child: sections[i]))],
                                       ),
                                     ),
                                   ),
-                                  // Positioned(
-                                  //   bottom: 20,
-                                  //   left: 0,
-                                  //   right: 0,
-                                  //   child: Row(
-                                  //     mainAxisAlignment: MainAxisAlignment.center,
-                                  //     children: [
-                                  //       InkWell(
-                                  //         // onTap: () => isAtBottom.value ? _scrollToTop() : _scrollToBottom(),
-                                  //         onTap: () => printx(scrollViewController.keys),
-                                  //         child: ScrollArrowButton(animation: _animation, isAtBottom: isAtBottom),
-                                  //       ),
-                                  //     ],
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             )),

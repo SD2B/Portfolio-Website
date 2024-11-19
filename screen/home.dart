@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/common%20elements/in_progress.dart';
 import 'package:my_portfolio/helpers/responsive_helper.dart';
 import 'package:my_portfolio/helpers/sddb_helper.dart';
 import 'package:my_portfolio/screen/sidebar/side_bar_button.dart';
@@ -26,7 +25,7 @@ class HomeMainSection extends StatelessWidget {
             50.width,
             Expanded(
               child: SizedBox(
-                height: context.height() - 88,
+                // height: context.height() - 88,
                 width: ResponsiveHelper.isDesktop(context) ? context.width() - 830 : 500,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -99,6 +98,7 @@ class HomeMainSection extends StatelessWidget {
             ),
           ],
         ),
+        40.height,
         SizedBox(
           width: context.width() - 400,
           child: Text(
