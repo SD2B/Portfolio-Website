@@ -44,8 +44,7 @@ class ContactSection extends StatelessWidget {
               svgl: "assets/svg/insta_light.svg",
               svgd: "assets/svg/insta_dark.svg",
               onTap: () async {
-                await launchUrl(
-                    Uri.parse("https://www.instagram.com/s_d__d_b/"));
+                await launchUrl(Uri.parse("https://www.instagram.com/s_d__d_b/"));
               },
             ),
             SideBarButton(

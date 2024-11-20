@@ -16,6 +16,8 @@ class MainVM extends ChangeNotifier {
   bool isHozzoHovered = false;
   bool isIsseloHovered = false;
   SkillModel skillModel = const SkillModel();
+  bool isFlutter = false; // Initial value
+
   List<SkillModel> coreSkills = [
     const SkillModel(id: 1, name: 'Flutter', svg: 'assets/svg/flutter.svg'),
     const SkillModel(id: 2, name: 'Dart', svg: 'assets/svg/dart.svg'),
@@ -36,4 +38,12 @@ class MainVM extends ChangeNotifier {
     const SkillModel(id: 3, name: 'Photoshop', svg: 'assets/svg/photoshop.svg'),
     const SkillModel(id: 6, name: 'InkScape', svg: 'assets/svg/inkscape.svg'),
   ];
+
+  Stream<bool> toggleBoolStream() async* {
+    while (true) {
+      await Future.delayed(const Duration(seconds: 2));
+      isFlutter = !isFlutter; // Toggle the value
+      yield isFlutter; // Emit the new value
+    }
+  }
 }

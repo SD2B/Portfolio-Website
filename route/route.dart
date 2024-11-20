@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_portfolio/screen/contact/contact.dart';
-import 'package:my_portfolio/screen/education/education.dart';
-import 'package:my_portfolio/screen/home.dart';
-import 'package:my_portfolio/screen/plugins/plugins.dart';
-import 'package:my_portfolio/screen/projects/projects.dart';
 
-import '../helpers/common_enums.dart';
 import '../helpers/constants.dart';
 import '../screen/custom_scaffold.dart';
-import '../screen/skills/skills.dart';
 
 final GoRouter myRoute = GoRouter(
   initialLocation: "/",
@@ -32,9 +25,9 @@ List<RouteBase> _buildRoutes() {
             return FadeTransition(opacity: CurveTween(curve: Curves.easeInOutSine).animate(animation), child: child);
           },
           child: const CustomScaffold()),
-      routes: [
-        // ..._staticRoutes(),
-      ],
+      // routes: [
+      // ..._staticRoutes(),
+      // ],
     ),
   ];
 }

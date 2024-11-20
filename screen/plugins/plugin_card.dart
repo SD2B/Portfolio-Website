@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:my_portfolio/colors.dart';
+import 'package:my_portfolio/helpers/responsive_helper.dart';
 import 'package:my_portfolio/helpers/sddb_helper.dart';
 import 'package:my_portfolio/model/widget_build_model.dart';
 
@@ -12,7 +13,9 @@ class PluginCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final respo = ResponsiveHelper.isDesktop(context);
     return Tilt(
+        disable: respo ? false : true,
         lightConfig: const LightConfig(color: Color(0xFFbcbcbc)),
         shadowConfig: const ShadowConfig(color: Colors.transparent),
         borderRadius: BorderRadius.circular(20),

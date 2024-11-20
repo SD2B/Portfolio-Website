@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:my_portfolio/colors.dart';
+import 'package:my_portfolio/helpers/responsive_helper.dart';
 import 'package:my_portfolio/helpers/sddb_helper.dart';
 import 'package:my_portfolio/model/widget_build_model.dart';
 
@@ -13,12 +14,14 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final respo = ResponsiveHelper.isDesktop(context);
     return Tilt(
+        disable: respo ? false : true,
         lightConfig: LightConfig(color: Color(0xFFbcbcbc)),
         shadowConfig: ShadowConfig(color: Colors.transparent),
         borderRadius: BorderRadius.circular(10),
         child: Container(
-          height: 300,
+          height: respo ? 300 : null,
           width: 300,
           decoration: BoxDecoration(color: ColorCode.colorList(context).cardColor, borderRadius: BorderRadius.circular(10)),
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),

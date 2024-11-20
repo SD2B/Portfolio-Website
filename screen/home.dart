@@ -1,57 +1,102 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/helpers/responsive_helper.dart';
 import 'package:my_portfolio/helpers/sddb_helper.dart';
 import 'package:my_portfolio/screen/sidebar/side_bar_button.dart';
+import 'package:my_portfolio/vm/riverpod.dart';
+import 'package:smart_wrap/smart_expand.dart';
+import 'package:smart_wrap/smart_wrap.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomeMainSection extends StatelessWidget {
+class HomeMainSection extends ConsumerWidget {
   const HomeMainSection({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final respo = ResponsiveHelper.isDesktop(context);
+    final vm = ref.watch(mainVM);
+    vm.toggleBoolStream();
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Row(
+        SmartWrap(
+          type: respo ? WrapType.row : WrapType.column,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            if (!respo) 100.height,
             const HomePageProfileImage(),
             50.width,
-            Expanded(
+            SmartExpand(
+              disableExpand: respo,
               child: SizedBox(
                 // height: context.height() - 88,
-                width: ResponsiveHelper.isDesktop(context) ? context.width() - 830 : 500,
+                width: respo ? context.width() - 830 : context.width() - 80,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: respo ? CrossAxisAlignment.start : CrossAxisAlignment.center,
                   children: [
                     20.height,
                     Text(
-                      'Hi,',
+                      respo ? 'Hi,' : 'Hi',
                       textDirection: TextDirection.ltr,
                       style: GoogleFonts.abhayaLibre(
                         fontSize: 65,
-                        color: const Color(0xFFbcbcbc),
                       ),
                     ),
                     Text(
                       'I\'m Sanoop Das',
                       textDirection: TextDirection.ltr,
-                      style: GoogleFonts.abhayaLibre(fontSize: 48),
+                      style: GoogleFonts.abhayaLibre(fontSize: respo ? 48 : 40),
                     ),
-                    Text(
-                      'A Software Developer',
-                      textDirection: TextDirection.ltr,
-                      style: GoogleFonts.abhayaLibre(fontSize: 48),
-                    ),
+                    if (respo)
+                      StreamBuilder(
+                        stream: vm.toggleBoolStream(),
+                        builder: (context, snapshot) => snapshot.data == true
+                            ? Text(
+                                'A Flutter Developer',
+                                textDirection: TextDirection.ltr,
+                                style: GoogleFonts.abhayaLibre(fontSize: respo ? 48 : 40),
+                              ).animate().fade(duration: Duration(milliseconds: 500))
+                            : Text(
+                                'A Software Developer',
+                                textDirection: TextDirection.ltr,
+                                style: GoogleFonts.abhayaLibre(fontSize: respo ? 48 : 40),
+                              ).animate().fadeIn(duration: Duration(milliseconds: 500)),
+                      ),
+                    if (!respo) ...[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'A ',
+                            textDirection: TextDirection.ltr,
+                            style: GoogleFonts.abhayaLibre(fontSize: respo ? 48 : 40),
+                          ),
+                          StreamBuilder(
+                            stream: vm.toggleBoolStream(),
+                            builder: (context, snapshot) => Text(
+                              snapshot.data == true ? 'Flutter' : 'Software',
+                              textDirection: TextDirection.ltr,
+                              style: GoogleFonts.abhayaLibre(fontSize: respo ? 48 : 40),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        'Developer',
+                        textDirection: TextDirection.ltr,
+                        style: GoogleFonts.abhayaLibre(fontSize: respo ? 48 : 40),
+                      )
+                    ],
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: respo ? MainAxisAlignment.start : MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SideBarButton(
@@ -91,7 +136,7 @@ class HomeMainSection extends StatelessWidget {
                         ),
                       ],
                     ),
-                    80.height,
+                    respo ? 80.height : 10.height,
                   ],
                 ),
               ),
@@ -100,10 +145,14 @@ class HomeMainSection extends StatelessWidget {
         ),
         40.height,
         SizedBox(
-          width: context.width() - 400,
+          width: respo ? context.width() - 400 : context.width() - 80,
           child: Text(
             "⚪   I am a Flutter developer focused on creating multiplatform applications with seamless functionality and user-friendly design. Proficient in Flutter and Dart, I develop solutions for Web, Android, iOS, Windows, macOS, and Linux, always prioritizing the user experience. I am committed to continuously improving my skills and contributing to meaningful projects.",
-            style: GoogleFonts.abhayaLibre(fontSize: 24),
+            style: GoogleFonts.abhayaLibre(
+              fontSize: 24,
+              letterSpacing: respo ? null : 0,
+            ),
+            textAlign: respo ? null : TextAlign.justify,
           ),
         ),
       ],
@@ -142,9 +191,11 @@ class HomePageProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final respo = ResponsiveHelper.isDesktop(context);
+
     return SizedBox(
-      width: context.width() / 2.2,
-      height: context.height() - 190,
+      width: respo ? context.width() / 2.2 : 200,
+      height: respo ? context.height() - 190 : 200,
       child: Center(
         child: Stack(
           children: [

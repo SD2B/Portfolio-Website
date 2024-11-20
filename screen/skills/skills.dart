@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/common%20elements/in_progress.dart';
+import 'package:my_portfolio/helpers/responsive_helper.dart';
 import 'package:my_portfolio/helpers/sddb_helper.dart';
 import 'package:my_portfolio/screen/skills/skill_card.dart';
 
@@ -13,18 +14,20 @@ class Skills extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final respo = ResponsiveHelper.isDesktop(context);
     return SizedBox(
-      width: context.width() - 88,
+      width: respo ? context.width() - 88 : context.width(),
       child: Padding(
         padding: const EdgeInsets.only(left: 20.0),
         child: Column(
           children: [
             HeaderLabel(header: "Skills", headFontSize: 40, centerAlign: true),
+            if (!respo) 10.height,
             SizedBox(
-              width: context.width() - 320,
+              width: respo ? context.width() - 320 : context.width(),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: respo ? CrossAxisAlignment.start : CrossAxisAlignment.center,
                 children: [
                   HeaderLabel(header: "Core Skills", headFontSize: 20),
                   20.height,
