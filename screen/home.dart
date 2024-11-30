@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/common%20elements/speak_button.dart';
 import 'package:my_portfolio/helpers/responsive_helper.dart';
 import 'package:my_portfolio/helpers/sddb_helper.dart';
 import 'package:my_portfolio/screen/sidebar/side_bar_button.dart';
@@ -131,7 +132,7 @@ class HomeMainSection extends ConsumerWidget {
                           svgl: "assets/svg/resume.svg",
                           svgd: "assets/svg/resume.svg",
                           onTap: () {
-                            launchUrl(Uri.parse("https://drive.google.com/file/d/1l1EmPs7mLoccS_V6e7RRpBrg-fSZaRqP/view?usp=sharing"));
+                            launchUrl(Uri.parse("https://drive.google.com/file/d/1rbEgD025TUoBWKfC7P2bIRn-t3LcTts4/view?usp=sharing"));
                           },
                         ),
                       ],
@@ -144,10 +145,30 @@ class HomeMainSection extends ConsumerWidget {
           ],
         ),
         40.height,
+        // SpeakButton(),
         SizedBox(
           width: respo ? context.width() - 400 : context.width() - 80,
           child: Text(
-            "⚪   I am a Flutter developer focused on creating multiplatform applications with seamless functionality and user-friendly design. Proficient in Flutter and Dart, I develop solutions for Web, Android, iOS, Windows, macOS, and Linux, always prioritizing the user experience. I am committed to continuously improving my skills and contributing to meaningful projects.",
+            "⚪   "
+            'My name is Sanoop Das, and I am from Malappuram, Kerala. I am a Flutter developer focused on creating '
+            'multiplatform applications with seamless functionality and user-friendly design. Proficient in Flutter and Dart, '
+            'I develop solutions for Web, Android, iOS, Windows, macOS, and Linux, always prioritizing the user experience. '
+            'I am committed to continuously improving my skills and contributing to meaningful projects.\n\n'
+            'After completing my Bachelor’s degree in Computer Science, I pursued a Master’s degree in Computer Applications, '
+            'which gave me a solid foundation in programming and application development.\n\n'
+            'I started my professional journey with an internship at Ralfiz Technologies, where I gained hands-on experience '
+            'working on projects for Indian and international clients. This role helped me understand the nuances of developing '
+            'high-quality applications. Later, I joined Screl Info Pvt. Ltd. as a Flutter Developer, where I contributed to '
+            'several cross-platform projects, improving user engagement and ensuring timely delivery of applications.\n\n'
+            'Currently, I am a freelance Flutter developer, working on a variety of projects that allow me to explore innovative '
+            'solutions. My most notable works include:\n'
+            '- ISSELO: A restaurant management and POS software offering robust offline and online syncing features for uninterrupted service.\n'
+            '- Hozzo: India’s leading car wash application, where I introduced water-saving features, reducing usage by 40%.\n\n'
+            'In addition to my professional work, I actively contribute to the Flutter community by publishing tools like '
+            'SmartTip and SmartWrap on pub.dev, helping developers create flexible and customizable UI components.\n\n'
+            'When I’m not coding, I enjoy spending time with dogs and birds, playing video games, and exploring new technologies. '
+            'I am fluent in English, Malayalam, Hindi, and Tamil, which enables me to connect with people from different backgrounds.\n\n'
+            'I am now seeking a permanent role in a reputable company where I can contribute to impactful projects and continue to grow as a developer.',
             style: GoogleFonts.abhayaLibre(
               fontSize: 24,
               letterSpacing: respo ? null : 0,

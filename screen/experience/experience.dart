@@ -14,8 +14,6 @@ class Experience extends StatelessWidget {
     final respo = ResponsiveHelper.isDesktop(context);
     return SizedBox(
       width: respo ? context.width() - 300 : context.width() - 50,
-      // width: context.width() - 150,
-      // color: Colors.white,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -41,7 +39,7 @@ class Experience extends StatelessWidget {
               company: "Screl Info Pvt. Ltd | Kakkancheri, Kerala",
               job: "Flutter Developer",
               dates: "November 2023 - November 2024",
-              description: [
+              description: const [
                 "Designed and deployed cross-platform applications for Web, Android, iOS, and Windows, leading to a 40% increase in downloads and 15% improvement in user retention.",
                 "Collaborated with diverse teams to achieve 100% on-time project delivery, utilizing strong communication and teamwork skills.",
                 "Developed maintainable code and conducted thorough code reviews to uphold quality standards.",
@@ -70,7 +68,7 @@ class Experience extends StatelessWidget {
               company: "Ralfiz Technologies | Perinthalmanna, Kerala",
               job: "Flutter Developer Intern",
               dates: "July 2023- November 2023",
-              description: [
+              description: const [
                 "Gained hands-on experience in Flutter development while contributing to projects for both Indian and international clients.",
                 "Worked with the development team to build and deploy high-quality mobile applications.",
                 "Built a solid foundation in the Flutter framework and mobile application development through practical, project-based learning.",
@@ -117,7 +115,8 @@ class ExperienceCard extends StatelessWidget {
             10.height,
             ...description.map(
               (e) => Text("▫️ $e"),
-            )
+            ),
+            25.height,
           ],
         ),
       ),
