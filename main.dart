@@ -13,7 +13,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
-      title: 'Code Life',
+      title: 'Sanoop Das',
       debugShowCheckedModeBanner: false,
       theme: MyTheme.getThemeData(ThemeMode.light),
       themeMode: ThemeMode.dark,
