@@ -97,9 +97,12 @@ class ExperienceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        final respo = ResponsiveHelper.isDesktop(context);
+
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 50),
       child: Container(
+        height:respo?  230:null,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Color(0xFFbcbcbc)),
@@ -116,7 +119,6 @@ class ExperienceCard extends StatelessWidget {
             ...description.map(
               (e) => Text("▫️ $e"),
             ),
-            25.height,
           ],
         ),
       ),
