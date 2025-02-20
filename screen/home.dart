@@ -132,7 +132,7 @@ class HomeMainSection extends ConsumerWidget {
                           svgl: "assets/svg/resume.svg",
                           svgd: "assets/svg/resume.svg",
                           onTap: () {
-                            launchUrl(Uri.parse("https://drive.google.com/file/d/1rbEgD025TUoBWKfC7P2bIRn-t3LcTts4/view?usp=sharing"));
+                            launchUrl(Uri.parse("https://drive.google.com/file/d/15dQfEQViFisNB095sYqn11IZUd1RfN13/view?usp=sharing"));
                           },
                         ),
                       ],
