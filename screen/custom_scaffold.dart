@@ -5,6 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:metaballs/metaballs.dart';
 import 'package:my_portfolio/helpers/responsive_helper.dart';
 import 'package:my_portfolio/helpers/sddb_helper.dart';
+import 'package:my_portfolio/screen/chrome_extensions/extensions.dart';
 import 'package:my_portfolio/screen/contact/contact.dart';
 import 'package:my_portfolio/screen/custom_navbar.dart';
 import 'package:my_portfolio/screen/experience/experience.dart';
@@ -24,7 +25,7 @@ class CustomScaffold extends HookWidget {
     final scrollViewController = useRef(MultiPageViewController()).value;
     final respo = ResponsiveHelper.isDesktop(context);
 
-    final sections = [HomeMainSection(), Skills(),Experience(), Projects(), Plugins(), ContactMe(), Text("Developed by Sanoop Das")];
+    final sections = [HomeMainSection(), Skills(),Experience(), Projects(), Plugins(),Extensions(), ContactMe(), Text("Developed by Sanoop Das")];
     return Scaffold(
       backgroundColor: Colors.black,
       body: Metaballs(

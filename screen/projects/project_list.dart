@@ -3,7 +3,13 @@ import 'package:my_portfolio/model/widget_build_model.dart';
 class ProjectList {
   static List<WidgetBuildModel> projectList = [
     WidgetBuildModel(
-      title: "SincA Leads - Lead Management Software ",
+      title: "DB Billmate – Offline Billing Software",
+      subTitle: "DB Billmate is an offline billing and accounting software for small shops. It simplifies daily operations with seamless billing, item management, accounts handling, debit/credit tracking, and supplier management—no internet required.",
+      labelList: [],
+      valueList: [],
+    ),
+    WidgetBuildModel(
+      title: "SincA Leads - Lead Management Software",
       subTitle: "Developed a lead management solution that improved lead conversion by 35%, featuring automated follow-ups, customizable lead scoring, and real-time analytics to boost sales efficiency and decision-making.",
       labelList: [],
       valueList: [],
@@ -35,8 +41,8 @@ class ProjectList {
     WidgetBuildModel(
       title: "Century Pool - Pool Booking Application",
       subTitle: "Established an intuitive pool booking application, enabling users to seamlessly reserve slots; increased user engagement by 40% and slashed booking time by 60% within the first three months.",
-      labelList: ["WEB"],
-      valueList: ["https://century-pool.com"],
+      labelList: ["WEB", "APPLE STORE"],
+      valueList: ["https://century-pool.com", "https://apps.apple.com/in/app/century-pool/id6450617623"],
     ),
   ];
 }

@@ -68,7 +68,7 @@ class CustomNavBar extends StatelessWidget {
                   scrollViewController.jumpToSection("3");
                 },
               ),
-              if (respo)
+              if (respo) ...[
                 SideBarButton(
                   labelOnly: !respo,
                   label: "Plugins",
@@ -78,13 +78,23 @@ class CustomNavBar extends StatelessWidget {
                     scrollViewController.jumpToSection("4");
                   },
                 ),
+                SideBarButton(
+                  labelOnly: !respo,
+                  label: "Extensions",
+                  svgl: "assets/svg/extensions.svg",
+                  svgd: "assets/svg/extensions.svg",
+                  onTap: () {
+                    scrollViewController.jumpToSection("5");
+                  },
+                ),
+              ],
               SideBarButton(
                 labelOnly: !respo,
                 label: "Contact Me",
                 svgl: "assets/svg/contactl.svg",
                 svgd: "assets/svg/contactd.svg",
                 onTap: () {
-                  scrollViewController.jumpToSection("5");
+                  scrollViewController.jumpToSection("6");
                 },
               ),
             ],
